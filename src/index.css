@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+.debug {
+  border: 1px solid red;
+}
+
+hr {
+  margin: 2px 0;
+  width: 100%;
+  opacity: 0.3;
+}
