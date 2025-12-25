@@ -14,7 +14,7 @@ export const Menu = () => {
     setIsComponentVisible: setShowSettings,
   } = useComponentVisible(false);
 
-  const { persons, addPerson, removePerson } = useScheduleStore();
+  const { persons, addPerson } = useScheduleStore();
 
   const toggleSettings = () => setShowSettings((prev) => !prev);
 
