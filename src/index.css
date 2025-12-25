@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+@theme {
+  --color-morning: #5a7863;
+  --color-afternoon: #7b542f;
+  --color-evening: #213448;
+
+  --color-green: #5a7863;
+  --color-brown: #7b542f;
+  --color-navy: #213448;
+  --color-blue-bold: #0e172b;
+}
+
 .debug {
   border: 1px solid red;
 }

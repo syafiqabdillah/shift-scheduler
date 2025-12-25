@@ -10,3 +10,5 @@ export type Schedule = {
   month: number;
   employees: Record<string, Record<number, Shift>>;
 };
+
+export type ShiftType = "morning" | "afternoon" | "evening";

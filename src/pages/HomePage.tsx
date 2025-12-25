@@ -2,7 +2,7 @@ import { startOfDay } from "date-fns";
 import { twMerge } from "tailwind-merge";
 import { Header } from "../components/Header";
 import { ShiftBox } from "../components/ShiftBox";
-import { useSchedule } from "../hooks/useSchedule";
+import { useScheduleStore } from "../hooks/useScheduleStore";
 
 const DAYS = [
   "Sunday",
@@ -17,8 +17,7 @@ const DAYS = [
 const Homepage = () => {
   const {
     schedule: { year, month, employees },
-    addOrRemoveEmployee,
-  } = useSchedule();
+  } = useScheduleStore();
 
   const date = new Date(year, month - 1);
 
@@ -46,7 +45,7 @@ const Homepage = () => {
     <div className='bg-slate-900 text-gray-200 min-h-screen tracking-wide text-[12px]'>
       <Header date={date} />
       <div className='p-4'>
-        <div className='grid grid-cols-7 gap-x-2 gap-y-4  sticky top-0 bg-slate-900 z-10  py-2'>
+        <div className='grid grid-cols-7 gap-x-2 gap-y-4 sticky top-10 bg-slate-900 z-10 py-2'>
           {DAYS.map((day) => {
             return (
               <div key={day} className='font-bold'>
@@ -73,28 +72,13 @@ const Homepage = () => {
                 <div>{item.day}</div>
                 <hr />
                 {/* morning */}
-                <ShiftBox
-                  day={day}
-                  shifts={morningShifts}
-                  addOrRemoveEmployee={addOrRemoveEmployee}
-                  type='morning'
-                />
+                <ShiftBox day={day} shifts={morningShifts} type='morning' />
                 <hr />
                 {/* afternoon */}
-                <ShiftBox
-                  day={day}
-                  shifts={afternoonShifts}
-                  addOrRemoveEmployee={addOrRemoveEmployee}
-                  type='afternoon'
-                />
+                <ShiftBox day={day} shifts={afternoonShifts} type='afternoon' />
                 <hr />
                 {/* evening */}
-                <ShiftBox
-                  day={day}
-                  shifts={eveningShifts}
-                  addOrRemoveEmployee={addOrRemoveEmployee}
-                  type='evening'
-                />
+                <ShiftBox day={day} shifts={eveningShifts} type='evening' />
               </div>
             );
           })}
